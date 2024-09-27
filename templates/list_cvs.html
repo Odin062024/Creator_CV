@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Zapisane CV</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Zapisane CV</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Imię i nazwisko</th>
+                    <th>Email</th>
+                    <th>Akcja</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cv in cvs %}
+                <tr>
+                    <td>{{ cv.name }}</td>
+                    <td>{{ cv.email }}</td>
+                    <td>
+                        <a href="{{ url_for('download_cv_pdf', cv_id=cv.id) }}" class="btn btn-primary">Pobierz PDF</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
